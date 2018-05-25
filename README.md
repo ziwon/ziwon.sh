@@ -1,2 +1,2 @@
 # ziwon.sh
-curl -sL https://ziwon.sh | sudo bash -
+curl -sL https://git.io/ziwon.sh | sudo bash -
