@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Ref: https://github.com/princeofdatamining/ops/blob/master/osx/pyenv-install-version.sh
+VERSION=$1
+CFLAGS=
+LDFLAGS=
+shift
+
+for arg in $@; do
+    CFLAGS="$CFLAGS -I$(brew --prefix $arg)/include"
+    LDFLAGS="$LDFLAGS -L$(brew --prefix $arg)/lib"
+done
+
+[ -n "$VERSION" ] && echo "Installing $VERSION.."
+[ -n "$CFLAGS" ] && echo $CFLAGS
+[ -n "$LDFLAGS" ] && echo $LDFLAGS
+
+CFLAGS="$CFLAGS" \
+LDFLAGS="$LDFLAGS" \
+pyenv install $VERSION

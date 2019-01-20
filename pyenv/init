@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "${BASH_SOURCE}")";
+
+PY2_VER=2.7.15
+PY3_VER=3.7.1
+
+sh ./fix-mojave
+sh ./fix-pyenv $PY2_VER zlib
+sh ./fix-pyenv $PY3_VER zlib sqlite
