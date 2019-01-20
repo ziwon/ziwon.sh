@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "${BASH_SOURCE}")";
+
+rsync --exclude ".DS_Store" \
+		--exclude "init" \
+		--exclude "README.md" \
+		-avh --no-perms . ~;
