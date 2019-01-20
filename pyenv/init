@@ -8,3 +8,5 @@ PY3_VER=3.7.1
 sh ./fix-mojave
 sh ./fix-pyenv $PY2_VER zlib
 sh ./fix-pyenv $PY3_VER zlib sqlite
+
+pyenv global $PY3_VER

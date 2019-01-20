@@ -9,6 +9,14 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra,pureline,pureli
 done;
 unset file;
 
+# Source bash completion
+if [ -d /usr/local/etc/bash_completion.d ]; then
+	for file in $(echo /usr/local/etc/bash_completion.d/*sh); do
+		source $file
+    done;
+fi;
+unset file;
+
 # Case-insensitive glokbbing (used in pathname expansion)
 shopt -s nocaseglob;
 
