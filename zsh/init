@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+if [ "$1" = "--force" -o "$1" = "-f" ]; then
+	rm -rf ~/.antigen
+	rm -rf ~/.zplugin
+fi;
+
+# Ref: https://stackoverflow.com/questions/9901210/bash-source0-equivalent-in-zsh
+cd "$(cd "$( dirname "${(%):-%N}" )" && pwd)"
+
+rsync --exclude ".DS_Store" \
+        --exclude ".git" \
+		--exclude "init" \
+		--exclude "README.md" \
+		-avh --no-perms . ~;
+	source ~/.zshrc;

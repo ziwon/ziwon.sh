@@ -2,6 +2,9 @@
 
 cd "$(dirname "${BASH_SOURCE}")";
 
+if [ ! -f .gitalias.txt ]; then
+	curl -o .gitalias.txt https://raw.githubusercontent.com/GitAlias/gitalias/master/gitalias.txt
+fi
 rsync --exclude ".DS_Store" \
 		--exclude "init" \
 		--exclude "README.md" \

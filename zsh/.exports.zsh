@@ -1,26 +1,15 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-# Use bash 5.0
-export SHELL='/usr/local/bin/bash'
+export SHELL='/usr/local/bin/zsh'
+
+# Fix ls: illegal option -- - in tmux
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # Make vim the default editor.
 export EDITOR='vim';
 
-# Enable persistent REPL history for `node`.
-export NODE_REPL_HISTORY=~/.node_history;
-# Allow 32³ entries; the default is 1000.
-export NODE_REPL_HISTORY_SIZE='32768';
-# Use sloppy mode by default, matching web browsers.
-export NODE_REPL_MODE='sloppy';
-
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
-
-# Increase Bash history size. Allow 32³ entries; the default is 500.
-export HISTSIZE='90000';
-export HISTFILESIZE="${HISTSIZE}";
-# Omit duplicates and commands that begin with a space from history.
-export HISTCONTROL='ignoreboth';
 
 # Prefer US English and use UTF-8.
 export LANG='en_US.UTF-8';
@@ -52,3 +41,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Fix prompt warning
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+# Zplugin
+export PATH="$HOME/.zplugin/bin:$PATH"

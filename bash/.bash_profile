@@ -4,7 +4,7 @@ export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH";
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra,pureline,pureline.conf}; do
+for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -54,8 +54,3 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
-
-# Initialize pyenv
-if command -v pyenv 1>/dev/null 2>&1; then 
-	eval "$(pyenv init -)" 
-fi

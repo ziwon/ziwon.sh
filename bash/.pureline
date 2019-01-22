@@ -1,6 +1,7 @@
 #!/bin/env bash
+# Ref: https://github.com/chris-marsh/pureline
 
-# PureLine - A Pure Bash Powerline PS1 Command Prompt 
+# PureLine - A Pure Bash Powerline PS1 Command Prompt
 
 # -----------------------------------------------------------------------------
 # returns a string with the powerline symbol for a section end
@@ -447,7 +448,7 @@ fi
 # grab a snapshot of the systems PROMPT_COMMAND. this can then be
 # appended to pureline when sourced without continually appending
 # pureline to itself.
-if [ -z "$__PROMPT_COMMAND" ]; then 
+if [ -z "$__PROMPT_COMMAND" ]; then
     __PROMPT_COMMAND="$PROMPT_COMMAND"
 fi
 

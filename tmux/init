@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "${BASH_SOURCE}")";
+
+rsync .tmux.conf ~;
+rsync .tmux.conf ~/.tmux;
+
+if [ ! -e "$HOME/.tmux/plugins/tpm" ]; then
+	echo "Installing tpm.."
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+echo "Installing TPM plugins.."
+# Ref: https://github.com/samoshkin/tmux-config/blob/master/install.sh
+tmux new -d -s __noop >/dev/null 2>&1 || true
+tmux set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.tmux/plugins"
+"$HOME"/.tmux/plugins/tpm/bin/install_plugins || true
+tmux kill-session -t __noop >/dev/null 2>&1 || true

@@ -7,6 +7,3 @@ rsync --exclude ".DS_Store" \
 		--exclude "README.md" \
 		-avh --no-perms . ~;
 	source ~/.bash_profile;
-
-# Use bash 5.0
-sudo chsh -s /usr/local/bin/bash $USER

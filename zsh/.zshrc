@@ -1,20 +1,18 @@
-source /usr/local/bin/antigen.zsh
+# Load the shell dotfiles, and then some:
+for file in ~/.{exports,aliases,functions,extra,prompt}.zsh; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+bindkey -v
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle heroku
-antigen bundle pip
-antigen bundle lein
-antigen bundle command-not-found
+bindkey "^R" history-search-multi-word  # ctrl-r
+bindkey "^A" beginning-of-line          # ctrl-a
+bindkey "^E" end-of-line                # ctrl-e
+bindkey "^F" forward-word               # ctrl-f
+bindkey "^B" backward-word              # ctrl-b
+bindkey "^K" vi-change-whole-line       # ctrl-k
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Load the theme.
-antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
-
-# Tell Antigen that you're done.
-antigen apply
+source <(kubectl completion zsh)
+source <(minikube completion zsh)
+source <(helm completion zsh)
