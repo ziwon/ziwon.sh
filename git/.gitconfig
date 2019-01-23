@@ -7,10 +7,10 @@
 	pager = less -+XF -Qc
 	excludesfile = ~/.gitexclude
 	trustctime = false
-	fscache = yes
-	autocrlf = no
-	quotepath = no
-	precomposeunicode = yes
+	fscache = true
+	autocrlf = false
+	quotepath = false
+	precomposeunicode = true
 	untrackedCache = true
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 [color "branch"]
@@ -38,9 +38,9 @@
 [diff "bin"]
 	textconv = hexdump -v -C
 [difftool]
-	prompt = no
+	prompt = false
 [fetch]
-	prune = yes
+	prune = true
 [branch]
 	autosetuprebase = always
 [push]
@@ -54,16 +54,16 @@
 [credential "https://github.com"]
 	username = ziwon
 [filter "lfs"]
-	required = yes
+	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [alias]
 	# use gitalias.txt
 	# https://github.com/GitAlias/gitalias
 [commit]
-	gpgsign = yes
+	gpgsign = true
 [rerere]
-	enabled = yes
+	enabled = true
 [stash]
 	showPatch = true
 [status]

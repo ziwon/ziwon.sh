@@ -1,5 +1,5 @@
 "---------------------------------------------------------------------------------
-" Credits to @sebdah, Never seen a better neovim setting this
+" Credits to @sebdah, Never seen a better neovim setting than this
 "  Reference: https://github.com/sebdah/dotfiles/blob/master/config/nvim/init.vim
 "---------------------------------------------------------------------------------
 

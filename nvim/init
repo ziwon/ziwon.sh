@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
 
 # Ref: https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
-# pyenv virtualenv $PY2_VER neovim2
-# pyenv virtualenv $PY3_VER neovim3
 
-# pyenv activate neovim2
-# pip install neovim
-# pyenv which python  # Note the path
+#pyenv virtualenv ${PY2_VER:-2.7.15} neovim2
+#pyenv virtualenv ${PY3_VER:-3.7.1} neovim3
 
-# pyenv activate neovim3
-# pip install neovim
-# pyenv which python  # Note the path
+#pyenv activate neovim2
+#pip install neovim
 
-# pip install flake8
-# ln -s `pyenv which flake8` ~/bin/flake8  # Assumes that $HOME/bin is in $PATH
+#pyenv activate neovim3
+#pip install neovim
+
+#pip install flake8
+#ln -s `pyenv which flake8` ~/bin/flake8  # Assumes that $HOME/bin is in $PATH
 
 cd "$(dirname "${BASH_SOURCE}")";
 
