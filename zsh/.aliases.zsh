@@ -11,6 +11,7 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias d="cd ~/Downloads"
 alias w="cd ~/Workspace"
 alias g="git"
+alias m="minikube"
 alias k="kubectl"
 alias vim="nvim"
 
@@ -116,4 +117,4 @@ alias reload="exec ${SHELL} -l"
 alias path='echo -e ${PATH//:/\\n}'
 
 # Get howto from stackoverflow
-alias h='howdoi $1 -c -n "${2:-10}"'
+alias s='howdoi $1 -c -n "${2:-10}"'

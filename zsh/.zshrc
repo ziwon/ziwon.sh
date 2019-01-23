@@ -13,6 +13,6 @@ bindkey "^F" forward-word               # ctrl-f
 bindkey "^B" backward-word              # ctrl-b
 bindkey "^K" vi-change-whole-line       # ctrl-k
 
-source <(kubectl completion zsh)
-source <(minikube completion zsh)
-source <(helm completion zsh)
+[ $commands[minikube] ] && source <(minikube completion zsh);
+[ $commands[kubectl] ] && source <(kubectl completion zsh);
+[ $commands[helm] ] && source <(helm completion zsh);

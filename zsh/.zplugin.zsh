@@ -34,21 +34,12 @@ zplugin light tj/git-extras
 zplugin ice wait"2" lucid as"program" pick"bin/git-dsf"
 zplugin light zdharma/zsh-diff-so-fancy
 
-zplugin ice wait"2" lucid as"program" pick"$ZPFX/bin/git-now" make"prefix=$ZPFX install"
-zplugin light iwata/git-now
-zplugin ice wait"2" lucid as"program" pick"$ZPFX/bin/git-alias" make"PREFIX=$ZPFX" nocompile
-zplugin light tj/git-extras
-zplugin ice wait"2" lucid as"program" atclone'perl Makefile.PL PREFIX=$ZPFX' atpull'%atclone' \
-            make'install' pick"$ZPFX/bin/git-cal"
-zplugin light k4rthik/git-cal
-
 # Tmux
 zplugin snippet OMZ::plugins/tmux/tmux.plugin.zsh
 zplugin light greymd/tmux-xpanes
 
 # Others
 zplugin snippet OMZ::plugins/gpg-agent/gpg-agent.plugin.zsh
-zplugin ice from"gh-r" as"program"; zplugin load junegunn/fzf-bin
 zplugin ice from"gh-r" as"program" mv"fd-*/fd -> fd"; zplugin load sharkdp/fd
 zplugin ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh"
 zplugin light direnv/direnv
