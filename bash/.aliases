@@ -116,3 +116,6 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Get howto from stackoverflow
+alias h='howdoi $1 -c -n "${2:-10}"'
