@@ -112,8 +112,8 @@ set updatetime=100                " redraw the status bar often
 " neovim specific settings
 if has('nvim')
     " pip3.6 install -U neovim
-    let g:python_host_prog  = '/Users/luno/.pyenv/versions/neovim2/bin/python'
-    let g:python3_host_prog = '/Users/luno/.pyenv/versions/neovim3/bin/python'
+    let g:python_host_prog  = $HOME . '/.pyenv/versions/neovim2/bin/python'
+    let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
 endif
 
 " Enable mouse if possible

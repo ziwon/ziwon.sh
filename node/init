@@ -1,0 +1,4 @@
+#!/usr/env/bin bash
+
+npm install -g typescript
+npm install -g neovim

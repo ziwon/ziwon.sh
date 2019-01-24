@@ -13,6 +13,8 @@
 	precomposeunicode = true
 	untrackedCache = true
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+[color]
+	ui = auto
 [color "branch"]
 	current = yellow reverse
 	local = yellow
@@ -33,12 +35,6 @@
 	added = yellow
 	changed = green
 	untracked = cyan
-[apply]
-	whitespace = fix
-[log]
-	date = iso8601
-[color]
-	ui = auto
 [diff]
 	renames = copies
 	tool = vimdiff
@@ -46,6 +42,12 @@
 	textconv = hexdump -v -C
 [difftool]
 	prompt = false
+[diff-so-fancy]
+	stripLeadingSymbols = false
+[apply]
+	whitespace = fix
+[log]
+	date = iso8601
 [fetch]
 	prune = true
 [branch]
