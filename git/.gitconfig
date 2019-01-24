@@ -4,7 +4,7 @@
 	signedkey = 57008F46EA55163B
 [core]
 	editor = nvim
-	pager = less -+XF -Qc
+	pager = diff-so-fancy | less --tabs=4 -+XF -Qc
 	excludesfile = ~/.gitexclude
 	trustctime = false
 	fscache = true
@@ -18,10 +18,17 @@
 	local = yellow
 	remote = green
 [color "diff"]
-	meta = yellow bold
+	meta = yellow
 	frag = magenta bold
-	old = red
-	new = green
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
 [color "status"]
 	added = yellow
 	changed = green
