@@ -10,7 +10,10 @@ alias ~="cd ~" # `cd` is probably faster to type though
 # Shortcuts
 alias d="cd ~/Downloads"
 alias w="cd ~/Workspace"
+alias z="cd ~/Workspace/GitHub/ziwon"
 alias g="git"
+alias dk="docker"
+alias dkc="docker-compose"
 alias m="minikube"
 alias k="kubectl"
 alias vim="nvim"
