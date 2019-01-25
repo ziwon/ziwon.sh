@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+YAMLLINT_HOME="$HOME/.config/yaml"
+
+cd "$(dirname "${BASH_SOURCE}")";
+
+mkdir -p $YAMLLINT_HOME
+rsync ./yamllint.config $YAMLLINT_HOME

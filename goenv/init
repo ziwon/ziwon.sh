@@ -1,0 +1,12 @@
+#!/bin/bash
+
+GO_VERSION=1.11.4
+export GOPATH='$HOME/Workspace/Golang'
+
+goenv install $GO_VERSION
+goenv global $GO_VERSION
+
+go get -u github.com/jstemmer/gotags
+
+echo "Installing go binaries.."
+nvim +'silent :GoInstallBinaries' +qall

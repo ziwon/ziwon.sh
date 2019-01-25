@@ -1,5 +1,6 @@
 # Initialize pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-	eval "$(pyenv init -)"
-	eval "$(pyenv virtualenv-init -)"
-fi
+command -v pyenv &> /dev/null && eval "$(pyenv init -)"
+command -v pyenv-virtualenv &> /dev/null && eval "$(pyenv virtualenv-init -)"
+
+# Initialize goenv
+command -v goenv &> /dev/null && eval "$(goenv init -)"

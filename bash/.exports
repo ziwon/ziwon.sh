@@ -49,6 +49,17 @@ export PY3_VER=3.7.1
 # Setup pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1 # Fix prompt warning
 
-# Fix prompt warning
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+# Setup goenv
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+
+# Setup path for go
+export GOPATH="$HOME/Workspace/Golang"
+export GOBIN="$GOPATH/bin"
+export PATH="$GOBIN/bin:$PATH"
+
+
+# k8s dind cluster
+export PATH="$HOME/.kubeadm-dind-cluster:$PATH"

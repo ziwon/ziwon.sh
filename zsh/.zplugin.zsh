@@ -25,6 +25,7 @@ zplugin light zsh-users/zsh-completions
 zplugin light zsh-users/zsh-autosuggestions
 zplugin snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
 zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+zplugin snippet OMZ::plugins/golang/golang.plugin.zsh
 zplugin ice as"completion"; zplugin snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 zplugin ice as"completion"; zplugin snippet https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/docker-compose/_docker-compose
 

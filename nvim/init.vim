@@ -108,6 +108,7 @@ set softtabstop=2
 set tabstop=2
 set title                         " let vim set the terminal title
 set updatetime=100                " redraw the status bar often
+set shiftwidth=4                  " virtual tabstops using spaces
 
 " neovim specific settings
 if has('nvim')
@@ -383,6 +384,9 @@ nnoremap <c-p> :FZF<cr>
 "----------------------------------------------
 " Plugin: 'majutsushi/tagbar'
 "----------------------------------------------
+
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+
 " Add shortcut for toggling the tag bar
 nnoremap <F3> :TagbarToggle<cr>
 
