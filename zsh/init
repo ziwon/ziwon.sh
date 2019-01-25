@@ -9,8 +9,9 @@ fi;
 cd "$(cd "$( dirname "${(%):-%N}" )" && pwd)"
 
 rsync --exclude ".DS_Store" \
-        --exclude ".git" \
-		--exclude "init" \
-		--exclude "README.md" \
-		-avh --no-perms . ~;
-	source ~/.zshrc;
+	--exclude ".git" \
+	--exclude "init" \
+	--exclude "README.md" \
+	-avh --no-perms . ~;
+
+source ~/.zshrc;

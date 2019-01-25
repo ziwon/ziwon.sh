@@ -53,9 +53,10 @@ export PY3_VER=3.7.1
 # Setup pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-
-# Fix prompt warning
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1 # Fix prompt warning
 
 # Zplugin
 export PATH="$HOME/.zplugin/bin:$PATH"
+
+# k8s dind cluster
+export PATH="$HOME/.kubeadm-dind-cluster:$PATH"

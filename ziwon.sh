@@ -11,7 +11,7 @@ else
 fi
 
 # Ref: https://github.com/andromedarabbit/dotfiles/blob/master/bootstrap.sh
-# Ask for sudo sccese.
+# Ask for sudo accese.
 sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until the script has finished.

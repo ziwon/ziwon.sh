@@ -60,6 +60,7 @@ brew 'translate-shell'
 brew 'tree'
 brew 'tmux'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD', 'without-doc']
+brew 'wget'
 brew 'wrk'
 brew 'zsh'
 brew 'zsh-completions'
@@ -67,6 +68,7 @@ brew 'zsh-completions'
 # Apps
 cask 'alfred'
 cask 'appcleaner'
+cask 'basictex'
 cask 'clipy'
 cask 'docker-edge'
 cask 'google-chrome'
@@ -86,9 +88,11 @@ cask 'visual-studio-code'
 # Fonts
 # Ref: https://github.com/Homebrew/homebrew-cask-fonts/tree/master/Casks
 cask 'font-fantasquesansmono-nerd-font'
+cask 'font-noto-sans'
 
 # Mac App Store
 mas 'Agenda', id: 1287445660
 mas 'The Unarchiver', id: 425424353
 mas 'myTuner Radio', id: 881415018
 mas 'Xcode', id: 497799835
+mas 'Spark', id: 1176895641
