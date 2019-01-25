@@ -14,7 +14,7 @@ Plug 'godlygeek/tabular'           " This must come before plasticboy/vim-markdo
 Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
 
 " General plugins
-Plug 'shougo/deoplete.nvim', { 'do': ':updateremoteplugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':updateremoteplugins' }
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'  " Default snippets for many languages
@@ -34,6 +34,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sebdah/vim-delve'
@@ -321,6 +322,9 @@ let g:webdevicons_enable_ctrlp = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 
 "----------------------------------------------
 " : christoomey/vim-tmux-navigator
@@ -456,6 +460,15 @@ let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
 nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <F2> :NERDTreeToggle<cr>
 
+" Directly open NerdTree on the file
+nnoremap <silent> <Leader>nd :NERDTreeFind<CR>
+
+" Opens a NERDTree that closes on file selection,
+nnoremap <Leader>d :let NERDTreeQuitOnOpen = 1<bar>NERDTreeToggle<CR>
+
+" Opens a persistent/pinned NERDTree.
+nnoremap <Leader>D :let NERDTreeQuitOnOpen = 0<bar>NERDTreeToggle<CR>
+
 " Files to ignore
 let NERDTreeIgnore = [
     \ '\~$',
@@ -466,14 +479,40 @@ let NERDTreeIgnore = [
     \ '^__pycache__$'
 \]
 
-" Close vim if NERDTree is the only opened window.
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" Open by default.
+let g:nerdtree_tabs_open_on_gui_startup=0
+
+" Don't close nerdtree after a file has opended
+let NERDTreeQuitOnOpen=0
 
 " Show hidden files by default.
 let NERDTreeShowHidden = 1
 
 " Allow NERDTree to change session root.
 let g:NERDTreeChDirMode = 2
+
+" Automatically delete the buffer of the file deleted.
+let NERDTreeAutoDeleteBuffer = 1
+
+" Close vim if NERDTree is the only opened window.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+"----------------------------------------------
+" Plugin: Xuyuanp/nerdtree-git-plugin
+"----------------------------------------------
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
 "----------------------------------------------
 " Plugin: sebdah/vim-delve
