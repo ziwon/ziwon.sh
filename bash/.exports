@@ -60,6 +60,5 @@ export GOPATH="$HOME/Workspace/Golang"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN/bin:$PATH"
 
-
 # k8s dind cluster
 export PATH="$HOME/.kubeadm-dind-cluster:$PATH"
