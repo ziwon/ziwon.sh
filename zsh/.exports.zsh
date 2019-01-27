@@ -7,7 +7,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # Make vim the default editor.
-export EDITOR='vim';
+export EDITOR='nvim';
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';

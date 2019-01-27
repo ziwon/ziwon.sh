@@ -19,12 +19,12 @@ zplugin light chrissicool/zsh-256color
 
 # Zplugin
 zplugin light zdharma/history-search-multi-word
-zplugin light b4b4r07/enhancd
 zplugin light bric3/nice-exit-code
 zplugin light zsh-users/zsh-completions
 zplugin light zsh-users/zsh-autosuggestions
+zplugin light djui/alias-tips
+zplugin light dbz/kube-aliases
 zplugin snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
-zplugin snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zplugin snippet OMZ::plugins/golang/golang.plugin.zsh
 zplugin ice as"completion"; zplugin snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 zplugin ice as"completion"; zplugin snippet https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/docker-compose/_docker-compose

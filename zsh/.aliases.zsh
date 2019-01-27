@@ -11,6 +11,7 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias d="cd ~/Downloads"
 alias w="cd ~/Workspace"
 alias z="cd ~/Workspace/GitHub/ziwon"
+alias k8s="cd ~/Workspace/Golang/src/k8s.io"
 alias g="git"
 alias dk="docker"
 alias dkc="docker-compose"

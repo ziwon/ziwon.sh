@@ -16,6 +16,7 @@ Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
 " General plugins
 Plug 'Shougo/deoplete.nvim', { 'do': ':updateremoteplugins' }
 Plug 'Shougo/denite.nvim'
+Plug 'Shougo/vimshell.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'  " Default snippets for many languages
 Plug 'bling/vim-airline'
@@ -461,13 +462,13 @@ nnoremap <leader>d :NERDTreeToggle<cr>
 nnoremap <F2> :NERDTreeToggle<cr>
 
 " Directly open NerdTree on the file
-nnoremap <silent> <Leader>nd :NERDTreeFind<CR>
+nnoremap <silent> <Leader>df :NERDTreeFind<CR>
 
 " Opens a NERDTree that closes on file selection,
-nnoremap <Leader>d :let NERDTreeQuitOnOpen = 1<bar>NERDTreeToggle<CR>
+nnoremap <Leader>dq :let NERDTreeQuitOnOpen = 1<bar>NERDTreeToggle<CR>
 
 " Opens a persistent/pinned NERDTree.
-nnoremap <Leader>D :let NERDTreeQuitOnOpen = 0<bar>NERDTreeToggle<CR>
+nnoremap <Leader>do :let NERDTreeQuitOnOpen = 0<bar>NERDTreeToggle<CR>
 
 " Files to ignore
 let NERDTreeIgnore = [
@@ -584,6 +585,8 @@ au FileType go nmap <F8> :GoMetaLinter<cr>
 au FileType go nmap <F9> :GoCoverageToggle -short<cr>
 au FileType go nmap <F10> :GoTest -short<cr>
 au FileType go nmap <F12> <Plug>(go-def)
+au FileType go nmap <leader>gcr :GoCallers<cr>
+au FileType go nmap <leader>gcl :GoCallees<cr>
 au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
 au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
 au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
