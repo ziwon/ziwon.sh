@@ -519,7 +519,7 @@ let g:NERDTreeIndicatorMapCustom = {
 " Plugin: sebdah/vim-delve
 "----------------------------------------------
 " Set the Delve backend.
-let g:delve_backend = "native"
+let g:delve_backend = "default"
 
 "----------------------------------------------
 " Plugin: Shougo/neosnippet
@@ -587,6 +587,7 @@ au FileType go nmap <F10> :GoTest -short<cr>
 au FileType go nmap <F12> <Plug>(go-def)
 au FileType go nmap <leader>gcr :GoCallers<cr>
 au FileType go nmap <leader>gcl :GoCallees<cr>
+au FileType go nmap <leader>gr :GoRun<cr>
 au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
 au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
 au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
@@ -597,6 +598,12 @@ au FileType go nmap <leader>gdv <Plug>(go-def-vertical)
 au FileType go nmap <leader>gdh <Plug>(go-def-split)
 au FileType go nmap <leader>gD <Plug>(go-doc)
 au FileType go nmap <leader>gDv <Plug>(go-doc-vertical)
+
+" Mapping Dlv
+au FileType go nmap <leader>gdd :DlvDebug . --build-flags="-gcflags='-N -l'" --<cr>
+au FileType go nmap <leader>gdt :DlvTest<cr>
+au FileType go nmap <leader>gdb :DlvToggleBreakpoint<cr>
+au FileType go nmap <leader>gdt :DlvAddTracepoint<cr>
 
 " Run goimports when running gofmt
 let g:go_fmt_command = "goimports"

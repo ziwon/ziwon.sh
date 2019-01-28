@@ -17,6 +17,7 @@ alias dk="docker"
 alias dkc="docker-compose"
 alias m="minikube"
 alias k="kubectl"
+alias vi="nvim"
 alias vim="nvim"
 
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -94,7 +95,7 @@ alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && kill
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 # URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+alias urlencode='python -c "import sys, urllib.parse as ulp; print(ulp.quote_plus(sys.argv[1]));"'
 
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
@@ -122,3 +123,6 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # Search howto in stackoverflow
 alias s='howdoi $1 -c -n "${2:-10}"'
+
+# Kill tmux server
+alias tk='tmux kill-server'

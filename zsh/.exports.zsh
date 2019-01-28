@@ -6,6 +6,10 @@ export SHELL='/usr/local/bin/zsh'
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
+# History size
+export HISTSIZE='90000';
+export HISTFILESIZE="${HISTSIZE}";
+
 # Make vim the default editor.
 export EDITOR='nvim';
 
