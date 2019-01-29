@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd "$(dirname "${BASH_SOURCE}")";
+
+rsync .tfcompleterc ~
+
+command -v terraform &> /dev/null && terraform -install-autocomplete

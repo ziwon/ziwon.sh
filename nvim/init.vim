@@ -45,6 +45,9 @@ Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
 Plug 'tomlion/vim-solidity'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'vim-syntastic/syntastic'
+Plug 'juliosueiras/vim-terraform-completion'
+Plug 'juliosueiras/vim-terraform-snippets'
 
 " Vim only plugins
 if !has('nvim')
@@ -111,6 +114,7 @@ set tabstop=2
 set title                         " let vim set the terminal title
 set updatetime=100                " redraw the status bar often
 set shiftwidth=4                  " virtual tabstops using spaces
+set nocompatible
 
 " neovim specific settings
 if has('nvim')
@@ -142,6 +146,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Center the screen quickly
 nnoremap <space> zz
+
+" Hide Info(Preview) window after completions
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 "----------------------------------------------
 " Colors
@@ -272,6 +280,12 @@ autocmd BufEnter NERD_tree_* :call BookmarkUnmapKeys()
 "----------------------------------------------
 " Plugin: Shougo/deoplete.nvim
 "----------------------------------------------
+
+set omnifunc='terraformcomplete#Complete'
+
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
+
 if has('nvim')
     " Enable deoplete on startup
     let g:deoplete#enable_at_startup = 1
@@ -286,6 +300,7 @@ function! Multiple_cursors_after()
     let b:deoplete_disable_auto_complete = 0
 endfunction
 
+call deoplete#initialize()
 "----------------------------------------------
 " Plugin: bling/vim-airline
 "----------------------------------------------
@@ -343,11 +358,11 @@ let g:tmux_navigator_no_mappings = 1
 let g:tmux_navigator_save_on_switch = 1
 
 " Move between splits with ctrl+h,j,k,l
-nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+" nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+" nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+" nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+" nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 "----------------------------------------------
 " Plugin: 'ctrlpvim/ctrlp.vim'
@@ -449,6 +464,12 @@ nnoremap <leader>a :Ack!<space>
 "----------------------------------------------
 " Plugin: neomake/neomake
 "----------------------------------------------
+" Setup to run neomake run automatically
+call neomake#configure#automake('w')
+call neomake#configure#automake('nw', 750)
+call neomake#configure#automake('rw', 1000)
+call neomake#configure#automake('nrwi', 500)
+
 " Configure signs.
 let g:neomake_error_sign   = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
 let g:neomake_warning_sign = {'text': '∆', 'texthl': 'NeomakeWarningSign'}
@@ -538,6 +559,10 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
+inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+    \ neosnippet#expandable_or_jumpable() ?
+    \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+
 " Set the path to our snippets
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 
@@ -571,6 +596,28 @@ let g:deoplete#sources#go#pointer = 1
 " Plugin: Vimjas/vim-python-pep8-indent
 "----------------------------------------------
 let g:pymode_indent = 0
+
+"----------------------------------------------
+" Plugin: vim-syntastic/syntastic
+"----------------------------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:terraform_fmt_on_save=1
+let g:terraform_align=1
+let g:terraform_remap_spacebar=1
+
+"----------------------------------------------
+" Plug 'juliosueiras/vim-terraform-completion'
+"----------------------------------------------
+let g:terraform_completion_keys = 1
+let g:terraform_registry_module_completion = 1
 
 "----------------------------------------------
 " Language: Golang

@@ -5,6 +5,14 @@ export SHELL='/usr/local/bin/zsh'
 # Fix ls: illegal option -- - in tmux
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# Provide ruby/dyn+ in vim
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+
+export NVIM_LOG_FILE="${HOME}/.local/share/nvim/log"
 
 # History size
 export HISTSIZE='90000';
