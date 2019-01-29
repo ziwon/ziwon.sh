@@ -64,6 +64,7 @@ Plug 'digitaltoad/vim-pug'                     " Pug syntax highlighting
 Plug 'fatih/vim-go'                            " Go support
 Plug 'fishbullet/deoplete-ruby'                " Ruby auto completion
 Plug 'hashivim/vim-terraform'                  " Terraform syntax highlighting
+Plug 'andrewstuart/vim-kubernetes'             " Kubernetes support
 Plug 'kylef/apiblueprint.vim'                  " API Blueprint syntax highlighting
 Plug 'lifepillar/pgsql.vim'                    " PostgreSQL syntax highlighting
 Plug 'mxw/vim-jsx'                             " JSX syntax highlighting
@@ -465,10 +466,12 @@ nnoremap <leader>a :Ack!<space>
 " Plugin: neomake/neomake
 "----------------------------------------------
 " Setup to run neomake run automatically
-call neomake#configure#automake('w')
-call neomake#configure#automake('nw', 750)
-call neomake#configure#automake('rw', 1000)
-call neomake#configure#automake('nrwi', 500)
+
+" Ref: https://github.com/neomake/neomake
+call neomake#configure#automake('w')                " When writing a buffer (no delay)
+call neomake#configure#automake('nw', 750)          " When writing a buffer (no delay), and on normal mode changes (after 750ms).
+call neomake#configure#automake('rw', 1500)         " When reading a buffer (after 1s), and when writing (no delay).
+call neomake#configure#automake('nrwi', 700)        " Full config: when writing or reading a buffer, and on changes in insert and normal mode (after 1s; no delay when writing).
 
 " Configure signs.
 let g:neomake_error_sign   = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
@@ -853,6 +856,21 @@ au FileType python set shiftwidth=4
 au FileType python set softtabstop=4
 au FileType python set tabstop=4
 
+" Ref:
+" - http://hiroki-sawano.hatenablog.com/entry/2018/11/11/151322
+" - https://github.com/pylava/pylava/wiki/Announcing-Pylava:-A-fork-of-Pylama-for-Python-3.7
+call neomake#config#set('ft.python.pylama.exe', 'pylava')
+call neomake#configure#automake('nrwi', 100)
+let g:neomake_open_list = 3
+let g:neomake_python_enabled_makers = ['pylama']
+let g:neomake_python_pylama_maker = {
+        \ 'args': ['--format', 'parsable', '-o', '~/.pylava.ini'],
+        \ 'errorformat': '%f:%l:%c: [%t] %m',
+        \ 'postprocess': function('neomake#makers#ft#python#PylamaEntryProcess'),
+        \ 'output_stream': 'stdout',
+        \ 'exe': $HOME . '/.pyenv/shims/pylava'
+        \ }
+
 "----------------------------------------------
 " Language: Ruby
 "----------------------------------------------
@@ -919,4 +937,3 @@ au FileType yaml set expandtab
 au FileType yaml set shiftwidth=2
 au FileType yaml set softtabstop=2
 au FileType yaml set tabstop=2
-

@@ -12,3 +12,5 @@ sh ./fix-pyenv $PY3_VER zlib sqlite
 pyenv global $PY3_VER
 
 git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+
+rsync .pylava.ini ~;

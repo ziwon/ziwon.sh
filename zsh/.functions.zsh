@@ -125,3 +125,20 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+
+# Run `csrutil disable` in recovery mode in case of not working properly
+function func-keys-on() {
+    defaults write com.apple.touchbar.agent PresentationModeGlobal -string functionKeys
+
+    pkill "ControlStrip"
+    pkill "Touch Bar agent"
+}
+
+function func-keys-off() {
+    defaults delete com.apple.touchbar.agent PresentationModeGlobal
+    defaults write com.apple.touchbar.agent PresentationModeGlobal appWithControlStrip
+
+    pkill "ControlStrip"
+    pkill "Touch Bar agent"
+}
