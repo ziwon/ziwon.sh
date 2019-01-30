@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "${BASH_SOURCE}")";
+cd "$(dirname "${BASH_SOURCE}")"
 
-rsync .tmux.conf ~;
-rsync renew_env.sh ~/.tmux;
+rsync .tmux.conf ~
+rsync renew_env.sh ~/.tmux
 
 if [ ! -e "$HOME/.tmux/plugins/tpm" ]; then
 	echo "Installing tpm.."
