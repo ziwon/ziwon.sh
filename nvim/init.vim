@@ -46,6 +46,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'tomlion/vim-solidity'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-syntastic/syntastic'
+Plug 'jiangmiao/auto-pairs'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'juliosueiras/vim-terraform-snippets'
 
@@ -468,7 +469,7 @@ nnoremap <leader>a :Ack!<space>
 " Setup to run neomake run automatically
 
 " Ref: https://github.com/neomake/neomake
-call neomake#configure#automake('w')                " When writing a buffer (no delay)
+call neomake#configure#automake('w', 750)                " When writing a buffer (no delay)
 call neomake#configure#automake('nw', 750)          " When writing a buffer (no delay), and on normal mode changes (after 750ms).
 call neomake#configure#automake('rw', 1500)         " When reading a buffer (after 1s), and when writing (no delay).
 call neomake#configure#automake('nrwi', 700)        " Full config: when writing or reading a buffer, and on changes in insert and normal mode (after 1s; no delay when writing).

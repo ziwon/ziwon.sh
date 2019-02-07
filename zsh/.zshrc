@@ -4,6 +4,7 @@ for file in ~/.{exports,aliases,functions,extra,prompt}.zsh; do
 done;
 unset file;
 
+setopt append_history       # apend history, not overwrite
 setopt inc_append_history   # write to history immediately
 setopt share_history        # share history among terminals
 setopt extended_history     # save extended info in history
@@ -23,7 +24,7 @@ bindkey "^]" clear-screen             # ctrl-k -> ctrl-]
 bindkey "^G" vi-backward-delete-char  # ctrl-h -> ctrl-g
 bindkey "^O" accept-line              # ctrl-j -> ctrl-o
 
-zstyle ":history-search-multi-word" page-size "5"                      # number of entries to show (default is $LINES/3)
+zstyle ":history-search-multi-word" page-size "10"                      # number of entries to show (default is $LINES/3)
 zstyle ":history-search-multi-word" highlight-color "fg=yellow,bold"   # color in which to highlight matched, searched text (default bg=17 on 256-color terminals)
 zstyle ":plugin:history-search-multi-word" synhl "yes"                 # whether to perform syntax highlighting (default true)
 zstyle ":plugin:history-search-multi-word" active "underline"          # effect on active history entry. Try: standout, bold, bg=blue (default underline)

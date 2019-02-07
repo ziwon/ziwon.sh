@@ -15,24 +15,26 @@ export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 export NVIM_LOG_FILE="${HOME}/.local/share/nvim/log"
 
 # History size
-export HISTSIZE='90000';
-export HISTFILESIZE="${HISTSIZE}";
+export HISTFILE=~/.zsh_history
+export SAVEHIST="99999"
+export HISTSIZE="99999"
+export HISTFILESIZE="${HISTSIZE}"
 
 # Make vim the default editor.
-export EDITOR='nvim';
+export EDITOR='nvim'
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
-export PYTHONIOENCODING='UTF-8';
+export PYTHONIOENCODING='UTF-8'
 
 # Prefer US English and use UTF-8.
-export LANG='en_US.UTF-8';
-export LC_ALL='en_US.UTF-8';
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
 
 # Highlight section titles in manual pages.
-export LESS_TERMCAP_md="${yellow}";
+export LESS_TERMCAP_md="${yellow}"
 
 # Don’t clear the screen after quitting a manual page.
-export MANPAGER='less -X';
+export MANPAGER='less -X'
 
 # Avoid issues with `gpg` as installed via Homebrew.
 # https://stackoverflow.com/a/42265848/96656

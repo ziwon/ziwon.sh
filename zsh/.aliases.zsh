@@ -17,6 +17,7 @@ alias dk="docker"
 alias dkc="docker-compose"
 alias m="minikube"
 alias k="kubectl"
+alias t="terraform"
 alias vi="nvim"
 alias vim="nvim"
 
@@ -117,6 +118,8 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
+
+alias history='fc -El 1'
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
