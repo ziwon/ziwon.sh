@@ -10,18 +10,18 @@ nodes=($(kubectl get pod  -lapp=${pod} -o json | jq -r '.items[] | .spec.nodeNam
 [[ "${nodes[@]}" ]] && label='app'
 
 if [[ -z "${nodes[@]}" ]] ; then
-	nodes=($(kubectl get pod  -lcomponent=${pod} -o json | jq -r '.items[] | .spec.nodeName'))
-	[[ "${nodes[@]}" ]] && label='component'
+  nodes=($(kubectl get pod  -lcomponent=${pod} -o json | jq -r '.items[] | .spec.nodeName'))
+  [[ "${nodes[@]}" ]] && label='component'
 fi
 
 if [[ -z "${nodes[@]}" ]] ; then
-	nodes=($(kubectl get pod  -lname=${pod} -o json | jq -r '.items[] | .spec.nodeName'))
-	[[ "${nodes[@]}" ]] && label='name'
+  nodes=($(kubectl get pod  -lname=${pod} -o json | jq -r '.items[] | .spec.nodeName'))
+  [[ "${nodes[@]}" ]] && label='name'
 fi
 
 if [[ -z "${nodes[@]}" ]] ; then
-	nodes=($(kubectl get pod  -lrun=${pod} -o json | jq -r '.items[] | .spec.nodeName'))
-	[[ "${nodes[@]}" ]] && label='run'
+  nodes=($(kubectl get pod  -lrun=${pod} -o json | jq -r '.items[] | .spec.nodeName'))
+  [[ "${nodes[@]}" ]] && label='run'
 fi
 
 
@@ -34,15 +34,15 @@ echo -e "\n_____________________________________________________________________
 echo -e "|------------------------------------------------------------------------------------------"
 count=0
 for node in ${!nodes[@]}; do
-	node_ip=$(kubectl get node ${nodes[$node]}  -o json | jq -r '.status.addresses' | jq -r '.[] | select(.type=="ExternalIP").address')
+  node_ip=$(kubectl get node ${nodes[$node]}  -o json | jq -r '.status.addresses' | jq -r '.[] | select(.type=="ExternalIP").address')
 
-	if [[ -z "$node_ip" ]]; then
-		node_ip=$(kubectl get node ${nodes[$node]}  -o json | jq -r '.status.addresses' | jq -r '.[] | select(.type=="InternalIP").address')
-	fi
+  if [[ -z "$node_ip" ]]; then
+    node_ip=$(kubectl get node ${nodes[$node]}  -o json | jq -r '.status.addresses' | jq -r '.[] | select(.type=="InternalIP").address')
+  fi
 
-	pod_ip=$(kubectl get po -l${label}=$1 -o json | jq -r '.items['$i'].status.podIP')
+  pod_ip=$(kubectl get po -l${label}=$1 -o json | jq -r '.items['$i'].status.podIP')
 
-	echo -e "|  ${pods[$node]}     ${nodes[$node]}      $node_ip    $pod_ip"
-	let i=i+1
+  echo -e "|  ${pods[$node]}     ${nodes[$node]}      $node_ip    $pod_ip"
+  let i=i+1
 done
 echo -e "|__________________________________________________________________________________________\n"
