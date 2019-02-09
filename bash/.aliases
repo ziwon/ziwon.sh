@@ -17,7 +17,7 @@ alias dk="docker"
 alias dkc="docker-compose"
 alias m="minikube"
 alias k="kubectl"
-alias t="terraform"
+alias tf="terraform"
 alias vi="nvim"
 alias vim="nvim"
 

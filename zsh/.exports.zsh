@@ -82,5 +82,5 @@ export GOPATH="$HOME/Workspace/Golang"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
-# k8s dind cluster
-export PATH="$HOME/.kubeadm-dind-cluster:$PATH"
+# Add kubectl plugins to PATH
+export PATH="$PATH:$HOME/.kube/plugins"
