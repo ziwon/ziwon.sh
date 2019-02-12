@@ -6,8 +6,9 @@ rules:
   commas:
     max-spaces-before: 0
   comments:
-    require-starting-space: true
+    require-starting-space: false
   comments-indentation: false
+  document-start: disable
   empty-lines:
     level: warning
   indentation:
