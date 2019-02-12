@@ -2,7 +2,7 @@
 
 cd "$(dirname "${BASH_SOURCE}")";
 
-mkdir -p "~/.kube/plugins/"
+mkdir -p "$HOME/.kube/plugins/"
 
 chmod +x kubectl-*
 
@@ -10,4 +10,4 @@ rsync --exclude ".DS_Store" \
 	--exclude ".git" \
 	--exclude "init" \
 	--exclude "README.md" \
-	-avh --no-perms . ~/.kube/plugins
+	-avh --no-perms . "$HOME/.kube/plugins";
