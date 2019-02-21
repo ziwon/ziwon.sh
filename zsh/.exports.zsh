@@ -76,6 +76,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1 # Fix prompt warning
 # Setup goenv
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
+export GO111MODULE=auto
 
 # Setup path for go
 export GOPATH="$HOME/Workspace/Golang"
