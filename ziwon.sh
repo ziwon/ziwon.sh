@@ -1,22 +1,26 @@
 #!/usr/bin/env bash
 
-# Clone repository if not exists
-REPO_HOME="$HOME/Workspace/GitHub/ziwon/ziwon.sh"
-if [ ! -d $REPO_HOME ]; then
-	mkdir -p $REPO_HOME
-	git clone git@github.com:ziwon/ziwon.sh.git
-	cd ziwon.sh
-else
-	cd $REPO_HOME
-fi
+# Setup REPO_HOME
+REPO_HOME="$HOME/Workspace/GitHub/ziwon"
+[ ! -d $REPO_HOME ] && mkdir -p $REPO_HOME || true
+
+# Clone repo if not exists
+cd $REPO_HOME;
+[ ! -d ziwon.sh ] && git clone https://github.com/ziwon/ziwon.sh.git || cd ziwon.sh && git pull
 
 # Ref: https://github.com/andromedarabbit/dotfiles/blob/master/bootstrap.sh
 # Ask for sudo accese.
-sudo -v
+sudo -v;
 
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
 while true; do sudo -n true; sleep 2400; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Build xcode 
+if test ! $(which xcodebuild); then
+  sudo xcodebuild -license accept
+fi
+
+# Install brew
 if test ! $(which brew); then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
@@ -28,7 +32,7 @@ sudo spctl --master-disable
 echo "Installing..."
 
 brew update && brew upgrade
-brew bundle --file=$REPO_HOME/Brewfile
+brew bundle
 
 # Return to the default strict Gatekeeper settings
 sudo spctl --master-enable

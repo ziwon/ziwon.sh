@@ -1,6 +1,8 @@
 # ziwon.sh
-curl -sL https://git.io/ziwon.sh | bash
 
+```sh
+curl -sL https://git.io/ziwon.sh | bash -
+```
 
 ## References
 - https://github.com/mathiasbynens/dotfiles
