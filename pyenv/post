@@ -1,5 +1,8 @@
 #!/bin/bash
 
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 pyenv virtualenv ${PY2_VER:-2.7.15} neovim2
 pyenv virtualenv ${PY3_VER:-3.7.1} neovim3
 
