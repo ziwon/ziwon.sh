@@ -10,7 +10,7 @@ cd $REPO_HOME;
 
 # Ref: https://github.com/andromedarabbit/dotfiles/blob/master/bootstrap.sh
 # Ask for sudo accese.
-sudo -v;
+sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
 while true; do sudo -n true; sleep 2400; kill -0 "$$" || exit; done 2>/dev/null &
@@ -37,11 +37,18 @@ brew bundle
 # Return to the default strict Gatekeeper settings
 sudo spctl --master-enable
 
-# Initialize
-dirlist=$(find . -mindepth 1 -maxdepth 1 -type d -not -path "*/.*"  | awk -F ./ '{print $NF}')
+# Initialize commons
+commons=(bash zsh nvim tmux)
+for dir in $commons; do
+	bash -c "$dir/init"
+done;
+
+# Initialize others
+dirlist=$(find . -mindepth 1 -maxdepth 1 -type d -not -path "*/.*" $(printf "! -name %s " $commons) | awk -F ./ '{print $NF}')
 for dir in $dirlist; do
 	bash -c "$dir/init"
 done;
+unset commons;
 unset dirlist;
 unset dir;
 
