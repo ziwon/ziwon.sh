@@ -6,7 +6,9 @@ REPO_HOME="$HOME/Workspace/GitHub/ziwon"
 
 # Clone repo if not exists
 cd $REPO_HOME;
-[ ! -d ziwon.sh ] && git clone https://github.com/ziwon/ziwon.sh.git || cd ziwon.sh && git pull
+[ ! -d ziwon.sh ] && git clone https://github.com/ziwon/ziwon.sh.git || true
+
+cd ziwon.sh && git pull
 
 # Ref: https://github.com/andromedarabbit/dotfiles/blob/master/bootstrap.sh
 # Ask for sudo accese.
