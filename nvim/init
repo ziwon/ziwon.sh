@@ -24,3 +24,6 @@ if [ ! -f  ~/.local/share/nvim/site/autoload/plug.vim  ]; then
 fi
 
 rsync init.vim ~/.config/nvim/init.vim;
+
+# Install nvim plugins
+vim +PlugInstall +qall > /dev/null
