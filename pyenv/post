@@ -13,4 +13,4 @@ pyenv activate neovim3
 pip install neovim
 
 pip install flake8
-ln -s `pyenv which flake8` ~/bin/flake8  # Assumes that $HOME/bin is in $PATH
+# ln -s `pyenv which flake8` ~/bin/flake8  # Assumes that $HOME/bin is in $PATH
