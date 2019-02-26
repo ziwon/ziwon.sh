@@ -14,3 +14,5 @@ pyenv global $PY3_VER
 git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 
 rsync .pylava.ini ~;
+
+sh -c "./post"
