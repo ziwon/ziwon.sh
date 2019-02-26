@@ -40,7 +40,7 @@ brew bundle --file=$REPO_HOME/ziwon.sh/Brewfile
 sudo spctl --master-enable
 
 # Initialize commons
-commons=(bash zsh nvim tmux)
+commons=(bash zsh pyenv nvim tmux)
 for dir in $commons; do
 	bash -c "$dir/init"
 done;
