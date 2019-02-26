@@ -26,5 +26,5 @@ fi
 rsync init.vim ~/.config/nvim/init.vim;
 
 # Install nvim plugins
-nvim +UpdateRemotePlugins +qall > /dev/null
 nvim +PlugInstall +qall > /dev/null
+nvim "+silent call dein#install()" +UpdateRemotePlugins +qall > /dev/null
