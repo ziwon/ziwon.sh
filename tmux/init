@@ -15,4 +15,4 @@ tmux set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.tmux/plugins"
 tmux kill-session -t __noop >/dev/null 2>&1 || true
 
 rsync .tmux.conf ~
-rsync renew_env.sh ~/.tmux
+rsync renew_env.sh ~/.tmux/;
