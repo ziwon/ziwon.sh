@@ -32,7 +32,7 @@ sudo spctl --master-disable
 echo "Installing..."
 
 brew update && brew upgrade
-brew bundle
+brew bundle --file=$REPO_HOME/ziwon.sh/Brewfile
 
 # Return to the default strict Gatekeeper settings
 sudo spctl --master-enable
