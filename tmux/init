@@ -7,7 +7,7 @@ rsync renew_env.sh ~/.tmux
 
 if [ ! -e "$HOME/.tmux/plugins/tpm" ]; then
 	echo "Installing tpm.."
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	mkdir -p ~/.tmux/plugins && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 echo "Installing TPM plugins.."
