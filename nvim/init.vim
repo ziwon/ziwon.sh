@@ -282,9 +282,6 @@ autocmd BufEnter NERD_tree_* :call BookmarkUnmapKeys()
 "----------------------------------------------
 " Plugin: Shougo/deoplete.nvim
 "----------------------------------------------
-
-set omnifunc='terraformcomplete#Complete'
-
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
 
@@ -890,6 +887,11 @@ au FileType sql set expandtab
 au FileType sql set shiftwidth=2
 au FileType sql set softtabstop=2
 au FileType sql set tabstop=2
+
+"----------------------------------------------
+" Language: Terraform
+"----------------------------------------------
+au FileType tf set omnifunc=terraformcomplete#Complete
 
 "----------------------------------------------
 " Language: Thrift
