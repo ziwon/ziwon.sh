@@ -9,3 +9,6 @@ command -v goenv &> /dev/null && eval "$(goenv init -)"
 
 # Setup direnv
 eval "$(direnv hook zsh)"
+
+# Setup rbenv
+eval "$(rbenv init -)"
