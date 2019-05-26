@@ -63,6 +63,7 @@ Plug 'chr4/nginx.vim'                          " nginx syntax highlighting
 Plug 'dag/vim-fish'                            " Fish syntax highlighting
 Plug 'digitaltoad/vim-pug'                     " Pug syntax highlighting
 Plug 'fatih/vim-go'                            " Go support
+Plug 'python/black'                            " Python Code Formatter
 Plug 'fishbullet/deoplete-ruby'                " Ruby auto completion
 Plug 'hashivim/vim-terraform'                  " Terraform syntax highlighting
 Plug 'andrewstuart/vim-kubernetes'             " Kubernetes support
@@ -684,48 +685,25 @@ let g:go_list_type = "quickfix"
 " Add the failing test name to the output of :GoTest
 let g:go_test_show_name = 1
 
-" gometalinter configuration
-let g:go_metalinter_command = ""
-let g:go_metalinter_deadline = "5s"
-let g:go_metalinter_enabled = [
-    \ 'deadcode',
-    \ 'gas',
-    \ 'goconst',
-    \ 'gocyclo',
-    \ 'golint',
-    \ 'gosimple',
-    \ 'ineffassign',
-    \ 'vet',
-    \ 'vetshadow'
-\]
-
 " Set whether the JSON tags should be snakecase or camelcase.
 let g:go_addtags_transform = "snakecase"
 
 " neomake configuration for Go.
-let g:neomake_go_enabled_makers = [ 'go', 'gometalinter' ]
-let g:neomake_go_gometalinter_maker = {
+let g:neomake_go_enabled_makers = [ 'go', 'golangci-lint' ]
+let g:neomake_go_golangci_lint_maker = {
+  \ 'exe': 'golangci-lint',
   \ 'args': [
-  \   '--tests',
-  \   '--enable-gc',
-  \   '--concurrency=3',
-  \   '--fast',
-  \   '-D', 'aligncheck',
-  \   '-D', 'dupl',
-  \   '-D', 'gocyclo',
-  \   '-D', 'gotype',
-  \   '-E', 'misspell',
-  \   '-E', 'unused',
-  \   '%:p:h',
+  \   'run',
+  \   '--out-format=line-number',
+  \   '--print-issued-lines=false',
+  \   '--enable-all',
   \ ],
   \ 'append_file': 0,
+  \ 'output_stream': 'stdout',
+  \ 'cwd': '%:h',
   \ 'errorformat':
-  \   '%E%f:%l:%c:%trror: %m,' .
-  \   '%W%f:%l:%c:%tarning: %m,' .
-  \   '%E%f:%l::%trror: %m,' .
-  \   '%W%f:%l::%tarning: %m'
+  \ '%f:%l:%c: %m'
   \ }
-
 "----------------------------------------------
 " Language: apiblueprint
 "----------------------------------------------
