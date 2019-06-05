@@ -832,6 +832,7 @@ au FileType python set shiftwidth=4
 au FileType python set softtabstop=4
 au FileType python set tabstop=4
 
+
 " Ref:
 " - http://hiroki-sawano.hatenablog.com/entry/2018/11/11/151322
 " - https://github.com/pylava/pylava/wiki/Announcing-Pylava:-A-fork-of-Pylama-for-Python-3.7
@@ -846,6 +847,9 @@ let g:neomake_python_pylama_maker = {
         \ 'output_stream': 'stdout',
         \ 'exe': $HOME . '/.pyenv/shims/pylava'
         \ }
+
+" To run Black on save
+au BufWritePre *.py execute ':Black'
 
 "----------------------------------------------
 " Language: Ruby
