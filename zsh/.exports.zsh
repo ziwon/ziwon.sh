@@ -83,5 +83,8 @@ export GOPATH="$HOME/Workspace/Golang"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
+# Setup flutter
+export PATH="$PATH:$HOME/Library/flutter/bin"
+
 # Add kubectl plugins to PATH
 export PATH="$PATH:$HOME/.kube/plugins"
