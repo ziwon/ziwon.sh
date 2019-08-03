@@ -15,7 +15,7 @@ cd ziwon.sh && git pull
 sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
-while true; do sudo -n true; sleep 2400; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do sudo -n true; sleep 5; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Build xcode 
 if test ! $(which xcodebuild); then
