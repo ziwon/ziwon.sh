@@ -80,6 +80,7 @@ Plug 'zchee/deoplete-jedi'                     " Go auto completion
 Plug 'zimbatm/haproxy.vim'                     " HAProxy syntax highlighting
 Plug 'HerringtonDarkholme/yats.vim'            " TypeScript syntax highlighting
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'rhysd/git-messenger.vim'                 " Show git logs in code
 
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
