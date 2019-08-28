@@ -838,28 +838,31 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#show_call_signatures = "1"
 
-let g:jedi#goto_command = "<leader>pg"
-let g:jedi#goto_assignments_command = "<leader>pa"
-let g:jedi#goto_definitions_command = "<leader>pd"
+let g:jedi#goto_command = "<leader>g"
+let g:jedi#goto_assignments_command = "<leader>za"
+let g:jedi#goto_definitions_command = "<leader>zd"
 let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>pu"
+let g:jedi#usages_command = "<leader>zu"
 let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>pr"
+let g:jedi#rename_command = "<leader>zr"
 
 
 " Ref:
+" - Pylama is working with python 3.7, and looks more active than Pylava
+"     Fixed: https://github.com/klen/pylama/pull/129
 " - http://hiroki-sawano.hatenablog.com/entry/2018/11/11/151322
 " - https://github.com/pylava/pylava/wiki/Announcing-Pylava:-A-fork-of-Pylama-for-Python-3.7
-call neomake#config#set('ft.python.pylama.exe', 'pylava')
 call neomake#configure#automake('nrwi', 100)
 let g:neomake_open_list = 3
 let g:neomake_python_enabled_makers = ['pylama']
+let g:neomake_python_pylint_cwd = '%:p:h'
 let g:neomake_python_pylama_maker = {
-        \ 'args': ['--format', 'parsable', '-o', '~/.pylava.ini'],
+        \ 'args': ['--format', 'parsable', '-o', '.pylama.ini'],
         \ 'errorformat': '%f:%l:%c: [%t] %m',
         \ 'postprocess': function('neomake#makers#ft#python#PylamaEntryProcess'),
         \ 'output_stream': 'stdout',
-        \ 'exe': $HOME . '/.pyenv/shims/pylava'
+        \ 'exe': $VIRTUAL_ENV . '/bin/pylama',
+        \ 'cwd': '%:p:h'
         \ }
 
 " To run Black on save
