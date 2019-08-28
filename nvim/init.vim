@@ -599,6 +599,10 @@ let g:deoplete#sources#go#pointer = 1
 " Plugin: Vimjas/vim-python-pep8-indent
 "----------------------------------------------
 let g:pymode_indent = 0
+let g:pymode_rope_autoimport_bind = "<leader>ri"
+let g:pymode_rope_organize_imports_bind = '<leader>roi'
+let g:pymode_rope_extract_method_bind = '<leader>rm'
+let g:pymode_rope_extract_variable_bind = '<leader>rv'
 
 "----------------------------------------------
 " Plugin: vim-syntastic/syntastic
@@ -838,13 +842,13 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#show_call_signatures = "1"
 
-let g:jedi#goto_command = "<leader>g"
-let g:jedi#goto_assignments_command = "<leader>za"
-let g:jedi#goto_definitions_command = "<leader>zd"
+let g:jedi#goto_command = "<leader>jg"
+let g:jedi#goto_assignments_command = "<leader>ja"
+let g:jedi#goto_definitions_command = "<leader>jd"
 let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>zu"
+let g:jedi#usages_command = "<leader>ju"
 let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>zr"
+let g:jedi#rename_command = "<leader>jr"
 
 
 " Ref:
@@ -855,15 +859,14 @@ let g:jedi#rename_command = "<leader>zr"
 call neomake#configure#automake('nrwi', 100)
 let g:neomake_open_list = 3
 let g:neomake_python_enabled_makers = ['pylama']
-let g:neomake_python_pylint_cwd = '%:p:h'
 let g:neomake_python_pylama_maker = {
-        \ 'args': ['--format', 'parsable', '-o', '.pylama.ini'],
+        \ 'args': ['--format', 'parsable', '-o', expand('%:p') . '/.pylama.ini'],
         \ 'errorformat': '%f:%l:%c: [%t] %m',
         \ 'postprocess': function('neomake#makers#ft#python#PylamaEntryProcess'),
         \ 'output_stream': 'stdout',
-        \ 'exe': $VIRTUAL_ENV . '/bin/pylama',
-        \ 'cwd': '%:p:h'
+        \ 'exe': 'pylama',
         \ }
+
 
 " To run Black on save
 au BufWritePre *.py execute ':Black'
