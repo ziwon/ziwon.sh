@@ -28,6 +28,8 @@ zplugin snippet OMZ::plugins/common-aliases/common-aliases.plugin.zsh
 zplugin snippet OMZ::plugins/golang/golang.plugin.zsh
 zplugin ice as"completion"; zplugin snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 zplugin ice as"completion"; zplugin snippet https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/docker-compose/_docker-compose
+zplugin ice as"completion"; zplugin snippet https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/terraform/_terraform
+zplugin ice as"completion"; zplugin snippet https://github.com/hashicorp/packer/blob/master/contrib/zsh-completion/_packer
 
 # Git
 zplugin snippet OMZ::lib/git.zsh
@@ -48,7 +50,7 @@ zplugin ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%a
 zplugin light direnv/direnv
 
 # Theme
-zplugin load caiogondim/bullet-train.zsh
+zplugin load ziwon/bullet-train.zsh
 
 autoload -Uz compinit
 compinit

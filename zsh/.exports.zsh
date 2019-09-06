@@ -50,7 +50,7 @@ export LSCOLORS='GxFxCxDxBxegedabagaced'
 export PATH="$HOME/.zplugin/bin:$PATH"
 
 # Theme styling
-export BULLETTRAIN_PROMPT_ORDER=(time dir virtualenv aws go rust git status cmd_exec_time)
+export BULLETTRAIN_PROMPT_ORDER=(time dir virtualenv aws kctx go rust git status cmd_exec_time)
 export BULLETTRAIN_DIR_BG='110m'          # light blue
 export BULLETTRAIN_DIR_FG=black
 export BULLETTRAIN_DIR_EXTENDED=2
@@ -58,8 +58,10 @@ export BULLETTRAIN_TIME_BG='250m'         # grey
 export BULLETTRAIN_VIRTUALENV_BG='69m'    # blue
 export BULLETTRAIN_VIRTUALENV_FG=black
 export BULLETTRAIN_VIRTUALENV_PREFIX=py
-export BULLETTRAIN_KCTX_BG='69m'          # blue
 export BULLETTRAIN_AWS_BG='169m'          # purple
+export BULLETTRAIN_KCTX_PREFIX='☸️  '
+export BULLETTRAIN_KCTX_BG='96m'          # blue
+export BULLETTRAIN_KCTX_KCONFIG=$HOME/.kube/config
 
 # Set the ENHANCD_FILTER variable to `fzy` as the first one
 export ENHANCD_FILTER="fzy:fzf"
