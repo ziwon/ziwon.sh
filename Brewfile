@@ -28,7 +28,7 @@ brew 'editorconfig'
 brew 'findutils'
 brew 'fzf'
 brew 'fzy'
-brew 'gnu-sed', args: ['with-default-names']
+brew 'gnu-sed'
 brew 'goenv'
 brew 'gpg'
 brew 'grv'
