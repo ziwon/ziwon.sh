@@ -3,14 +3,13 @@
 export SHELL='/usr/local/bin/zsh'
 
 # Fix ls: illegal option -- - in tmux
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin"
+export PATH="/usr/local/bin://usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # Provide ruby/dyn+ in vim
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include"
-export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+# export LDFLAGS="-L/usr/local/opt/ruby/lib"
+# export CPPFLAGS="-I/usr/local/opt/ruby/include"
+# export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 
 export NVIM_LOG_FILE="${HOME}/.local/share/nvim/log"
 
@@ -60,8 +59,9 @@ export BULLETTRAIN_VIRTUALENV_FG=black
 export BULLETTRAIN_VIRTUALENV_PREFIX=py
 export BULLETTRAIN_AWS_BG='169m'          # purple
 export BULLETTRAIN_KCTX_PREFIX='☸️  '
-export BULLETTRAIN_KCTX_BG='96m'          # blue
-export BULLETTRAIN_KCTX_KCONFIG=$HOME/.kube/config
+export BULLETTRAIN_KCTX_BG='61m'
+export BULLETTRAIN_GO_BG='30m'
+export BULLETTRAIN_KCTX_KCONFIG=$([ ! -z "$KUBECONFIG" ] && echo $KUBECONFIG || echo "$HOME/.kube/config")
 
 # Set the ENHANCD_FILTER variable to `fzy` as the first one
 export ENHANCD_FILTER="fzy:fzf"

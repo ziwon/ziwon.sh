@@ -12,6 +12,6 @@ rsync --exclude ".DS_Store" \
 	--exclude ".git" \
 	--exclude "init" \
 	--exclude "README.md" \
-	-avh --no-perms . ~;
+  -avh --no-perms . ~;
 
 source ~/.zshrc;
