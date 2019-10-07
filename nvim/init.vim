@@ -81,6 +81,9 @@ Plug 'zimbatm/haproxy.vim'                     " HAProxy syntax highlighting
 Plug 'HerringtonDarkholme/yats.vim'            " TypeScript syntax highlighting
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'rhysd/git-messenger.vim'                 " Show popup windows with the hidden messages from git
+Plug 'wakatime/vim-wakatime'                   " Automatic time tracking and metrics from programing activity
+Plug 'dart-lang/dart-vim-plugin'               " Dart syntax highlighting
+Plug 'thosakwe/vim-flutter'                    " Vim Flutter
 
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
